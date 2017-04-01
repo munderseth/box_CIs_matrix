@@ -19,9 +19,8 @@ test_script:
   
 after_test:
   - ps: >-
-    If ($env:JOB -Match "ONE") {
+     If ($env:JOB -Match "ONE") {
        testspace [$env:JOB]test.xml [$env:JOB]"+printenv.txt{environment variables}"
-    } Else {
+     } Else {
        testspace [$env:JOB]test.xml
-    }
-    }
+     }
