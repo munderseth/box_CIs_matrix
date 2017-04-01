@@ -15,7 +15,7 @@ script:
  
 after_script:
   - |
-    if [[["$JOB" = "ONE" ]]; then
+    if [["$JOB" = "ONE" ]]; then
       testspace [$JOB]test.xml [$JOB]"+printenv.txt{environment variables}"
     else
       testspace [$JOB]test.xml
