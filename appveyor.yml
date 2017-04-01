@@ -1,0 +1,21 @@
+version: 1.0.{build}
+configuration: Release
+
+install:
+  - appveyor DownloadFile https://testspace-client.s3.amazonaws.com/testspace-windows-dev.zip
+  - 7z x -y testspace-windows-dev.zip
+  - testspace config url http://095d8acfaaf71b4a0f3767e41152620ebdda1b31@mark.stridespace.com
+  
+environment:
+  matrix:
+   - JOB: ONE
+   - JOB: TWO
+   
+build_script:
+  - set > printenv.txt
+ 
+test_script:
+  - echo This is my custom test script
+  
+after_test:
+  - testspace [%JOB%]test.xml "+printenv.txt{environment variables}"
