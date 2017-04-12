@@ -5,14 +5,13 @@ env::
   - JOB=TWO
 
 build:
-  pre_ci:
+  ci:
    - mkdir -p $HOME/bin
    - curl -s https://testspace-client.s3.amazonaws.com/testspace-linux-dev.tgz | tar -zxvf- -C $HOME/bin
    - testspace config url http://095d8acfaaf71b4a0f3767e41152620ebdda1b31@mark.stridespace.com
    - testspace -v
-  ci:
    - printenv > printenv.txt
-  
+
   on_success:
    - |
     if [[ $JOB = "ONE" ]]; then
