@@ -20,7 +20,7 @@ test_script:
   
 after_test:
   - IF %JOB% == ONE (
-      testspace [%JOB%]test.xml [%JOB%]"+printenv.txt{environment variables}"
+      testspace test.xml "+printenv.txt{environment variables}" "#/%JOB%"
     ) ELSE ( 
-      testspace [%JOB%]test.xml
+      testspace test.xml "#/%JOB%"
     )

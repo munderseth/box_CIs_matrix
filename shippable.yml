@@ -15,14 +15,14 @@ build:
   on_success:
    - |
     if [[ $JOB = "ONE" ]]; then
-      testspace [$JOB]test.xml [$JOB]"+printenv.txt{environment variables}"
+      testspace test.xml "+printenv.txt{environment variables}" "#/$JOB"
     else
-      testspace [$JOB]test.xml
+      testspace test.xml "#/$JOB"
     fi
   on_failure:
    - |
     if [[ $JOB = "ONE" ]]; then
-      testspace [$JOB]test.xml [$JOB]"+printenv.txt{environment variables}"
+      testspace test.xml "+printenv.txt{environment variables}" "#/$JOB"
     else
-      testspace [$JOB]test.xml
+      testspace test.xml "#/$JOB"
     fi

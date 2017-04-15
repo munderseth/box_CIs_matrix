@@ -11,4 +11,6 @@ BRANCH_NAME=`git symbolic-ref --short HEAD`
 printenv > printenv.txt
 
 # Push
-testspace [ONE]test.xml [TWO]test.xml "+printenv.txt{environment variables}" --repo git
+testspace ?start
+testspace test.xml  
+testspace  test.xml "+printenv.txt{environment variables}" ?finish#/TWO --repo git
