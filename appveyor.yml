@@ -4,7 +4,7 @@ configuration: Release
 install:
   - appveyor DownloadFile https://testspace-client.s3.amazonaws.com/testspace-windows-dev.zip
   - 7z x -y testspace-windows-dev.zip
-  - testspace config url http://095d8acfaaf71b4a0f3767e41152620ebdda1b31@mark.stridespace.com
+  - testspace config url http://mark.stridespace.com
   - testspace -v
   
 environment:
@@ -21,6 +21,8 @@ test_script:
 after_test:
   - IF %JOB% == ONE (
       testspace [%JOB%]test.xml [%JOB%]"+printenv.txt{environment variables}"
-    ) ELSE ( 
-      testspace [%JOB%]test.xml
+    ) ELSE IF %JOB% == TWO ( 
+      testspace [%JOB%]test.xml [%JOB%]"+printenv.txt{environment variables}"
+    ) ELSE (
+      echo Unknown job
     )
