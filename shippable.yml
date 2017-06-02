@@ -20,6 +20,7 @@ build:
        testspace [$JOB]test.xml [$JOB]"+printenv.txt{environment variables}"
      else
        echo "Unknown job"
+     fi
   on_failure:
    - |
      if [ $JOB = "ONE" ]; then
@@ -28,3 +29,4 @@ build:
        testspace [$JOB]test.xml [$JOB]"+printenv.txt{environment variables}"
      else
        echo "Unknown job"
+     fi

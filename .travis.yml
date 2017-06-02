@@ -22,3 +22,4 @@ after_script:
       testspace [$JOB]test.xml [$JOB]"+printenv.txt{environment variables}"
     else
       echo "Unknown job"
+    fi
